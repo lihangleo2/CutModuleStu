@@ -1,0 +1,9 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.lihang.homemodule">
+
+    <application>
+        <activity android:name=".SelectHomeActivity" />
+
+        <activity android:name=".HomeDetailActivity"/>
+    </application>
+</manifest>

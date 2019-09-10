@@ -1,0 +1,41 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!--全屏模式-->
+    <style name="NoTitleFullscreenSplash" parent="@android:style/Theme.Translucent.NoTitleBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+
+    <!--main内4个tab中ImageView的样式-->
+    <style name="imageStyle_tab">
+        <item name="android:layout_height">@dimen/dp_20</item>
+        <item name="android:layout_width">@dimen/dp_20</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+
+    <style name="textStyle_tab">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+        <item name="android:textColor">@color/text_color_tab</item>
+    </style>
+
+
+
+
+</resources>

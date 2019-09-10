@@ -1,0 +1,43 @@
+ext {
+    //这里是配置开关。是否需要单独运行。注意，这里只能打开一个。因为一次只能运行一个。。
+    //true 表示需要单独运行。false表示不需要单独运行。
+
+    isNeedHomeModule = false
+    isNeedChatModule = false
+    isNeedFindModule = false
+    isNeedMineModule = false
+
+    android = [
+            compileSdkVersion: 28,
+            buildToolsVersion: "28.0.0",
+            minSdkVersion    : 22,
+            targetSdkVersion : 28,
+            versionCode      : 1,
+            versionName      : "1.0.0",
+            applicationId    : "com.lihang.catmodulestu",
+            applicationHomeId: "com.lihang.homemodule",
+            applicationChatId: "com.lihang.chatmodule"
+    ]
+
+    //这个对依赖库版本version的管理，就更加细致化了
+    version = [
+            androidSupportSdkVersion: "28.0.0"
+    ]
+
+    //系统依赖
+    dependencies = [
+            "support:appcompat-v7": "com.android.support:appcompat-v7:${version["androidSupportSdkVersion"]}",
+            "test:runner"         : 'com.android.support.test:runner:1.0.2',
+            "test.espresso"       : 'com.android.support.test.espresso:espresso-core:3.0.2',
+            "junit"               : 'junit:junit:4.12'
+    ]
+
+    //第三方库(请原谅我的英语)
+    //这样依赖库看起来比较清晰(dependencies : 代表系统依赖库；thridencies代表第三依赖库)
+    thridencies = [
+            "butterknife"         : 'com.jakewharton:butterknife:8.8.1',
+            "butterknife-compiler": 'com.jakewharton:butterknife-compiler:8.8.1',
+            "arouter-compiler"    : 'com.alibaba:arouter-compiler:1.1.4',
+            "arouter"             : 'com.alibaba:arouter-api:1.3.1',
+    ]
+}

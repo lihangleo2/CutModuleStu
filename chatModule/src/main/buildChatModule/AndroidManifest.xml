@@ -1,0 +1,9 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.lihang.chatmodule" >
+
+    <application>
+        <activity android:name=".SelectChatActivity" />
+
+        <activity android:name=".ChatDetailActivity"/>
+    </application>
+</manifest>

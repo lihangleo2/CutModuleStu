@@ -1,0 +1,58 @@
+//开头设置，如果打开开光，当成项目运行，否则当成library引用
+if (isNeedChatModule.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+
+
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        if (isNeedChatModule.toBoolean()) {
+            applicationId rootProject.ext.android["applicationChatId"]
+        }
+        versionCode rootProject.ext.android["versionCode"]
+        versionName rootProject.ext.android["versionName"]
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //ARouter的使用记得要加哦
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+    sourceSets {
+        main {
+            if (isNeedChatModule.toBoolean()) {
+                manifest.srcFile 'src/main/buildChatApp/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/buildChatModule/AndroidManifest.xml'
+            }
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation rootProject.ext.dependencies["support:appcompat-v7"]
+    testImplementation rootProject.ext.dependencies["junit"]
+    androidTestImplementation rootProject.ext.dependencies["test:runner"]
+    androidTestImplementation rootProject.ext.dependencies["test.espresso"]
+    implementation project(':baseModule')
+    annotationProcessor rootProject.ext.thridencies["arouter-compiler"]
+
+}
